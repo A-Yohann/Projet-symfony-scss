@@ -1,0 +1,30 @@
+@use "../base/variables" as *;
+
+.auth-page {
+    max-width: 500px;
+    margin: 100px auto;
+    padding: 40px;
+    background: rgba($color-brown, 0.8);
+    border: 2px solid $color-border;
+    border-radius: 15px;
+    text-align: center;
+}
+
+.auth-title {
+    margin-bottom: 30px;
+    color: $color-gold;
+}
+
+.auth-form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+
+    input {
+        padding: 12px 15px;
+        border-radius: 8px;
+        border: 1px solid $color-border;
+        background: rgba($color-dark, 0.4);
+        color: $color-primary;
+    }
+}

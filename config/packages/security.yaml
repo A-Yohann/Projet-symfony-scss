@@ -20,7 +20,7 @@ security:
 
             logout:
                 path: app_logout
-                target: horloge  # redirige vers la route horloge après logout
+                target: app_home 
 
             remember_me:
                 secret: '%kernel.secret%'

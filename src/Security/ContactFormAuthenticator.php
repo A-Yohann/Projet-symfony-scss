@@ -49,7 +49,7 @@ class ContactFormAuthenticator extends AbstractLoginFormAuthenticator
         }
 
         // Redirection après login vers la page d'accueil
-        return new RedirectResponse($this->urlGenerator->generate('horloge'));
+        return new RedirectResponse($this->urlGenerator->generate('app_home'));
     }
 
     protected function getLoginUrl(Request $request): string

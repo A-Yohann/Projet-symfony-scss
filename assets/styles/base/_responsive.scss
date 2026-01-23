@@ -1,0 +1,110 @@
+@use "../base/variables" as *;
+
+
+    // 768px
+
+@media (max-width: $breakpoint-mobile) {
+
+    /* BODY */
+    body {
+        background-attachment: scroll;
+    }
+
+    /* NAVIGATION */
+    .main-navigation {
+        flex-wrap: wrap;
+        gap: 15px;
+        padding: 12px 20px;
+    }
+
+    .nav-link {
+        padding: 8px 14px;
+        font-size: 0.9rem;
+    }
+
+    /* HERO */
+    .hero-section {
+        padding: 40px 20px;
+        min-height: 400px;
+    }
+
+    .hero-overlay {
+        padding: 25px;
+
+        h1 {
+            font-size: 1.8rem;
+        }
+    }
+
+    /* TITRES */
+    .section-title {
+        font-size: 1.4rem;
+        margin: 50px 0 30px;
+        letter-spacing: 2px;
+    }
+
+    .title-decor {
+        max-width: 120px;
+        margin-bottom: 20px;
+    }
+
+    /* INTRO */
+    .intro-section {
+        padding: 50px 20px;
+    }
+
+    /* QUOTE */
+    .quote-section {
+        padding: 25px;
+        font-size: 1.1rem;
+        margin: 40px 20px;
+    }
+
+    /* FEATURES / CARDS */
+    .features-grid {
+        grid-template-columns: 1fr;
+        gap: 25px;
+        padding: 20px;
+    }
+
+    .feature-card {
+        padding: 25px;
+    }
+
+    /* ADHESION */
+    .adhesion-section {
+        padding: 30px 20px;
+        margin: 60px 20px;
+
+        .adhesion-img {
+            max-width: 90%;
+        }
+    }
+
+    /* JOIN */
+    .join-box {
+        margin: 30px 20px;
+        padding: 25px;
+    }
+
+    /* BUTTON */
+    .btn-adhesion {
+        padding: 12px 35px;
+        font-size: 0.9rem;
+    }
+}
+
+
+//   ( 1024px)
+
+@media (max-width: $breakpoint-tablet) {
+
+    .features-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 30px;
+    }
+
+    .hero-overlay {
+        max-width: 700px;
+    }
+}

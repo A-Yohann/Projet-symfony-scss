@@ -1,0 +1,152 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Réseau de Passionnés{% endblock %}
+
+{% block body %}
+<div class="auth-page">
+    <div class="auth-box community-container">
+        <h1 class="auth-title">Réseau de Passionnés</h1>
+        <p class="intro-text">
+            Rejoignez une communauté bienveillante d'horlogers passionnés,
+            <a href="{{ path('app_register') }}" class="inline-link">
+                inscrivez-vous gratuitement
+            </a>
+            , partagez vos découvertes et apprenez ensemble.
+        </p>
+
+        {# Section Avantages de la communauté #}
+        <div class="community-stats">
+
+            <div class="stat-card stat-purple">
+                <div class="stat-icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M16 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
+                        <circle cx="8.5" cy="7" r="4"></circle>
+                        <path d="M20 8v6"></path>
+                        <path d="M23 11h-6"></path>
+                    </svg>
+                </div>
+                <h3>2 500+ Membres</h3>
+                <p>
+                    Une communauté active de collectionneurs, restaurateurs et passionnés d'horlogerie ancienne.
+                </p>
+            </div>
+
+            <div class="stat-card stat-pink">
+                <div class="stat-icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path>
+                    </svg>
+                </div>
+                <h3>Forum Actif</h3>
+                <p>
+                    Échangez conseils, astuces et expériences avec des experts et débutants bienveillants.
+                </p>
+            </div>
+
+            <div class="stat-card stat-blue">
+                <div class="stat-icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <rect x="3" y="4" width="18" height="18" rx="2"></rect>
+                        <line x1="16" y1="2" x2="16" y2="6"></line>
+                        <line x1="8" y1="2" x2="8" y2="6"></line>
+                        <line x1="3" y1="10" x2="21" y2="10"></line>
+                    </svg>
+                </div>
+                <h3>Événements Mensuels</h3>
+                <p>
+                    Participez à des ateliers, webinaires et rencontres pour développer vos compétences.
+                </p>
+            </div>
+
+        </div>
+
+        {# Section Comment participer #}
+        <h2 class="section-title">Comment Participer ?</h2>
+
+        <div class="steps-grid">
+
+            <article class="step-card">
+                <div class="step-number">1</div>
+                <h3>Créez votre Profil</h3>
+                <p>
+                    Inscrivez-vous gratuitement et présentez-vous à la communauté.
+                    Partagez vos centres d'intérêt et vos collections.
+                </p>
+            </article>
+
+            <article class="step-card">
+                <div class="step-number">2</div>
+                <h3>Rejoignez les Discussions</h3>
+                <p>
+                    Posez vos questions, partagez vos trouvailles et participez aux débats
+                    sur l'horlogerie ancienne.
+                </p>
+            </article>
+
+            <article class="step-card">
+                <div class="step-number">3</div>
+                <h3>Partagez vos Créations</h3>
+                <p>
+                    Publiez des photos de vos restaurations, partagez vos projets
+                    et inspirez les autres membres.
+                </p>
+            </article>
+
+        </div>
+
+        {# Section Témoignages #}
+        <div class="testimonials-section">
+            <h2>Témoignages de nos Membres</h2>
+
+            <div class="testimonials-grid">
+
+                <div class="testimonial-card">
+                    <div class="stars">★★★★★</div>
+                    <p class="testimonial-text">
+                        "Une communauté exceptionnelle ! J'ai appris énormément grâce aux conseils des membres expérimentés."
+                    </p>
+                    <p class="testimonial-author">— Marie D., Restauratrice</p>
+                </div>
+
+                <div class="testimonial-card">
+                    <div class="stars">★★★★★</div>
+                    <p class="testimonial-text">
+                        "Je débute dans l'horlogerie et l'entraide ici est incroyable. Merci à tous les membres !"
+                    </p>
+                    <p class="testimonial-author">— Jean L., Collectionneur</p>
+                </div>
+
+                <div class="testimonial-card">
+                    <div class="stars">★★★★★</div>
+                    <p class="testimonial-text">
+                        "Les événements mensuels sont une vraie source d'inspiration.
+                        Une communauté passionnée et passionnante !"
+                    </p>
+                    <p class="testimonial-author">— Pierre M., Horloger</p>
+                </div>
+
+            </div>
+        </div>
+
+        {# Call to action #}
+        <div class="cta-section">
+            <h2>Prêt à Nous Rejoindre ?</h2>
+            <p>
+                Faites partie d'une communauté qui partage votre passion pour l'horlogerie ancienne.
+            </p>
+
+            {% if app.user %}
+                <a href="{{ path('app_gallery') }}" class="btn-adhesion">
+                    Découvrir la Galerie
+                </a>
+            {% else %}
+                <a href="{{ path('app_register') }}" class="btn-adhesion">
+                    S'inscrire Gratuitement
+                </a>
+            {% endif %}
+        </div>
+
+    </div>
+</div>
+{% endblock %}

@@ -1,0 +1,52 @@
+@use "../base/variables" as *;
+
+html, body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+.auth-page {
+    min-height: 100vh;           // prend toute la hauteur de l'écran
+    display: flex;
+    align-items: center;          // centre vertical
+    justify-content: center;      // centre horizontal
+    padding: 40px 20px;
+}
+
+.auth-box {
+    width: 100%;
+    max-width: 420px;
+    padding: 40px;
+    background: rgba($color-brown, 0.8);
+    border: 2px solid $color-border;
+    border-radius: 15px;
+    text-align: center;
+}
+
+.auth-title {
+    color: $color-gold;
+    margin-bottom: 30px;
+}
+
+.auth-form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;          // centre les champs
+    gap: 20px;
+
+    input {
+        width: 100%;
+        max-width: 320px;
+        padding: 12px 15px;
+        border-radius: 8px;
+        border: 1px solid $color-border;
+        background: rgba($color-dark, 0.4);
+        color: $color-primary;
+    }
+
+    button {
+        margin-top: 10px;
+        align-self: center;
+    }
+}

@@ -1,13 +1,11 @@
+@use "../base/variables" as *;
 .hero-section {
-    background: url('../img/bg-horloge.png') center / cover no-repeat;
+    background: url('../../img/bg-horloge.png') center / cover no-repeat;
     min-height: 600px;
     padding: 80px 40px;
     position: relative;
 
-    @media (max-width: $breakpoint-mobile) {
-        padding: 40px 20px;
-        min-height: 400px;
-    }
+
 }
 
 .hero-overlay {
@@ -24,9 +22,7 @@
         text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.8);
         margin-bottom: 20px;
 
-        @media (max-width: $breakpoint-mobile) {
-            font-size: 1.8rem;
-        }
+
     }
 
     .hero-img {

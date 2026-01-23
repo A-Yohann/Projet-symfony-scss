@@ -1,0 +1,325 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Restauration Avancée - Guides de Restauration{% endblock %}
+
+{% block body %}
+<div class="auth-page">
+    <div class="auth-box guide-detail-container">
+        <a href="{{ path('app_restoration') }}" class="back-link">← Retour aux guides</a>
+        
+        <h1 class="auth-title">Restauration Avancée</h1>
+        
+        <div class="guide-hero">
+            <svg xmlns="http://www.w3.org/2000/svg" width="80" height="80" viewBox="0 0 24 24" fill="none" stroke="#ffd700" stroke-width="2">
+                <path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"></path>
+            </svg>
+        </div>
+
+        <p class="guide-intro">
+            Ce guide s'adresse aux horlogers confirmés qui souhaitent restaurer des mécanismes complexes et 
+            réparer des pièces endommagées avec des techniques professionnelles.
+        </p>
+
+        <div class="warning-box alert-advanced">
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#ffd700" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="display: inline-block; vertical-align: middle; margin-right: 8px;">
+                <path d="m21.73 18-8-14a2 2 0 0 0-3.48 0l-8 14A2 2 0 0 0 4 21h16a2 2 0 0 0 1.73-3Z"></path>
+                <line x1="12" y1="9" x2="12" y2="13"></line>
+                <line x1="12" y1="17" x2="12.01" y2="17"></line>
+            </svg>
+            <strong>Niveau Avancé :</strong> Ces techniques nécessitent une expérience préalable en horlogerie. 
+            Une mauvaise manipulation peut endommager irrémédiablement votre mécanisme.
+        </div>
+
+        <div class="guide-content">
+            
+            <section class="guide-section">
+                <h2>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#ffd700" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="display: inline-block; vertical-align: middle; margin-right: 8px;">
+                        <path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"></path>
+                    </svg>
+                    Matériel Professionnel Requis
+                </h2>
+                <div class="tool-categories">
+                    <div class="tool-category">
+                        <h3>Outils de Base</h3>
+                        <ul>
+                            <li>Établi horloger avec plateau de travail</li>
+                            <li>Jeu complet de tournevis horlogers</li>
+                            <li>Brucelles de précision (plusieurs tailles)</li>
+                            <li>Loupe frontale ou binoculaire</li>
+                            <li>Microlubrifiants spécialisés</li>
+                        </ul>
+                    </div>
+                    <div class="tool-category">
+                        <h3>Outils Spécialisés</h3>
+                        <ul>
+                            <li>Tour d'horloger</li>
+                            <li>Étau à main</li>
+                            <li>Lime d'horloger (différentes coupes)</li>
+                            <li>Fraises et alésoirs</li>
+                            <li>Compas de précision</li>
+                        </ul>
+                    </div>
+                    <div class="tool-category">
+                        <h3>Produits Chimiques</h3>
+                        <ul>
+                            <li>Solvants de nettoyage horloger</li>
+                            <li>Bains de dégraissage</li>
+                            <li>Produits anti-corrosion</li>
+                            <li>Epilame (produit hydrofuge)</li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+
+            <section class="guide-section">
+                <h2>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#ffd700" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="display: inline-block; vertical-align: middle; margin-right: 8px;">
+                        <circle cx="12" cy="5" r="1"></circle>
+                        <path d="m9 20 3-6 3 6"></path>
+                        <path d="m6 8 6 2 6-2"></path>
+                        <path d="M12 10v4"></path>
+                    </svg>
+                    Remplacement de Pièces
+                </h2>
+                <div class="step-content">
+                    <h3>Diagnostic des Pièces Défectueuses</h3>
+                    <p>
+                        Avant tout remplacement, un diagnostic précis est essentiel :
+                    </p>
+                    <ol>
+                        <li>Démontez complètement le mécanisme</li>
+                        <li>Nettoyez chaque pièce individuellement</li>
+                        <li>Inspectez à la loupe les signes d'usure, fissures, déformation</li>
+                        <li>Testez la mobilité de chaque pivot</li>
+                        <li>Vérifiez l'état des dentures</li>
+                    </ol>
+
+                    <h3>Sourcing de Pièces de Remplacement</h3>
+                    <ul>
+                        <li><strong>Pièces d'origine :</strong> Recherchez auprès de fournisseurs spécialisés ou horloges similaires</li>
+                        <li><strong>Reproduction :</strong> Faites reproduire la pièce par un artisan ou au tour</li>
+                        <li><strong>Adaptation :</strong> Modifiez une pièce existante pour qu'elle corresponde</li>
+                    </ul>
+
+                    <h3>Procédure de Remplacement</h3>
+                    <ol>
+                        <li>Prenez des mesures précises de la pièce défectueuse</li>
+                        <li>Vérifiez la compatibilité de la nouvelle pièce</li>
+                        <li>Ajustez si nécessaire par limage ou tournage</li>
+                        <li>Testez l'ajustement avant montage définitif</li>
+                        <li>Installez la pièce avec précaution</li>
+                    </ol>
+
+                    <div class="tip-box">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#ffd700" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="display: inline-block; vertical-align: middle; margin-right: 8px;">
+                            <circle cx="12" cy="12" r="10"></circle>
+                            <path d="M12 16v-4"></path>
+                            <path d="M12 8h.01"></path>
+                        </svg>
+                        <strong>Conseil Pro :</strong> Photographiez chaque étape du démontage. 
+                        Cela vous sera précieux lors du remontage.
+                    </div>
+                </div>
+            </section>
+
+            <section class="guide-section">
+                <h2>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#ffd700" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="display: inline-block; vertical-align: middle; margin-right: 8px;">
+                        <circle cx="12" cy="12" r="10"></circle>
+                        <circle cx="12" cy="12" r="6"></circle>
+                        <circle cx="12" cy="12" r="2"></circle>
+                    </svg>
+                    Réparation d'Échappement
+                </h2>
+                <div class="step-content">
+                    <h3>Types d'Échappement</h3>
+                    <div class="escapement-types">
+                        <div class="escapement-type">
+                            <h4>Échappement à Ancre</h4>
+                            <p>Le plus courant dans les horloges modernes. Nécessite un réglage précis de l'angle d'entrée et de sortie.</p>
+                        </div>
+                        <div class="escapement-type">
+                            <h4>Échappement à Verge</h4>
+                            <p>Présent dans les horloges anciennes. Réparation complexe nécessitant souvent le remplacement complet.</p>
+                        </div>
+                        <div class="escapement-type">
+                            <h4>Échappement Graham</h4>
+                            <p>Utilisé dans les horloges de précision. Demande une expertise particulière.</p>
+                        </div>
+                    </div>
+
+                    <h3>Diagnostic des Problèmes d'Échappement</h3>
+                    <ul class="checklist">
+                        <li>Échappement bloqué ou irrégulier</li>
+                        <li>Usure des palettes de l'ancre</li>
+                        <li>Déformation de la roue d'échappement</li>
+                        <li>Problème d'amplitude du balancier</li>
+                        <li>Échappement bruyant</li>
+                    </ul>
+
+                    <h3>Réparation Étape par Étape</h3>
+                    <ol>
+                        <li><strong>Inspection microscopique :</strong> Examinez les surfaces de contact</li>
+                        <li><strong>Nettoyage profond :</strong> Utilisez des bains à ultrasons si disponibles</li>
+                        <li><strong>Polissage des palettes :</strong> Pierre d'Arkansas ou papier abrasif très fin</li>
+                        <li><strong>Ajustement de l'ancre :</strong> Vérifiez le jeu entre l'ancre et la fourchette</li>
+                        <li><strong>Test de fonctionnement :</strong> Vérifiez la régularité sur plusieurs heures</li>
+                    </ol>
+
+                    <div class="warning-box">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#ffd700" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="display: inline-block; vertical-align: middle; margin-right: 8px;">
+                            <path d="m21.73 18-8-14a2 2 0 0 0-3.48 0l-8 14A2 2 0 0 0 4 21h16a2 2 0 0 0 1.73-3Z"></path>
+                            <line x1="12" y1="9" x2="12" y2="13"></line>
+                            <line x1="12" y1="17" x2="12.01" y2="17"></line>
+                        </svg>
+                        <strong>Précaution :</strong> Ne tentez jamais de réparer un échappement sans formation appropriée. 
+                        Une erreur peut rendre l'horloge définitivement inutilisable.
+                    </div>
+                </div>
+            </section>
+
+            <section class="guide-section">
+                <h2>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#ffd700" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="display: inline-block; vertical-align: middle; margin-right: 8px;">
+                        <path d="M12 2a3 3 0 0 0-3 3v7a3 3 0 0 0 6 0V5a3 3 0 0 0-3-3Z"></path>
+                        <path d="M12 12v8"></path>
+                        <path d="M6 16h12"></path>
+                    </svg>
+                    Restauration de Cadran
+                </h2>
+                <div class="step-content">
+                    <h3>Évaluation de l'État du Cadran</h3>
+                    <p>
+                        Déterminez le niveau d'intervention nécessaire :
+                    </p>
+                    <ul>
+                        <li><strong>Nettoyage simple :</strong> Poussière, traces superficielles</li>
+                        <li><strong>Retouches :</strong> Petites zones écaillées ou décolorées</li>
+                        <li><strong>Restauration complète :</strong> Cadran très abîmé ou illisible</li>
+                        <li><strong>Reproduction :</strong> Cadran détruit au-delà de toute réparation</li>
+                    </ul>
+
+                    <h3>Nettoyage du Cadran</h3>
+                    <ol>
+                        <li>Retirez délicatement le cadran du mécanisme</li>
+                        <li>Dépoussiérez avec un pinceau très souple</li>
+                        <li>Utilisez un coton-tige légèrement humide d'eau distillée</li>
+                        <li>Pour les cadrans émaillés : produits spécifiques à l'émail</li>
+                        <li>Séchez immédiatement avec un chiffon doux</li>
+                    </ol>
+
+                    <h3>Retouches et Peinture</h3>
+                    <p>
+                        Pour les retouches mineures :
+                    </p>
+                    <ul>
+                        <li>Utilisez des peintures horlogères compatibles</li>
+                        <li>Appliquez par touches microscopiques</li>
+                        <li>Respectez la patine d'origine</li>
+                        <li>Laissez sécher complètement entre chaque couche</li>
+                    </ul>
+
+                    <div class="tip-box">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#ffd700" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="display: inline-block; vertical-align: middle; margin-right: 8px;">
+                            <circle cx="12" cy="12" r="10"></circle>
+                            <path d="M12 16v-4"></path>
+                            <path d="M12 8h.01"></path>
+                        </svg>
+                        <strong>Conservation vs Restauration :</strong> Dans le domaine de la collection, 
+                        une patine authentique a souvent plus de valeur qu'une restauration trop visible.
+                    </div>
+                </div>
+            </section>
+
+            <section class="guide-section">
+                <h2>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#ffd700" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="display: inline-block; vertical-align: middle; margin-right: 8px;">
+                        <path d="M22 10v6M2 10l10-5 10 5-10 5z"></path>
+                        <path d="M6 12v5c3 3 9 3 12 0v-5"></path>
+                    </svg>
+                    Techniques d'Horloger Professionnel
+                </h2>
+                <div class="step-content">
+                    <h3>Pivotage et Alésage</h3>
+                    <p>
+                        Lorsqu'un pivot est usé ou cassé :
+                    </p>
+                    <ol>
+                        <li>Retirez l'ancien pivot au tour</li>
+                        <li>Préparez un nouveau pivot dans du laiton ou acier</li>
+                        <li>Tournez le pivot aux dimensions exactes</li>
+                        <li>Polissez le pivot à la perfection</li>
+                        <li>Chassez le pivot dans l'axe</li>
+                    </ol>
+
+                    <h3>Réglage de l'Entre-Pivots</h3>
+                    <p>
+                        La distance entre les pivots doit être parfaitement ajustée :
+                    </p>
+                    <ul>
+                        <li>Mesurez avec un compas d'épaisseur</li>
+                        <li>Ajustez en ouvrant ou fermant légèrement les ponts</li>
+                        <li>Vérifiez l'absence de jeu latéral</li>
+                        <li>Testez la rotation libre de chaque mobile</li>
+                    </ul>
+
+                    <h3>Réglage du Hérisson (Spiral)</h3>
+                    <p>
+                        Le spiral contrôle la vitesse de l'horloge. Son réglage est délicat :
+                    </p>
+                    <ol>
+                        <li>Ne touchez JAMAIS le spiral avec les doigts</li>
+                        <li>Utilisez des brucelles très fines</li>
+                        <li>Ajustez la longueur active par petits incréments</li>
+                        <li>Testez la précision sur 24h minimum</li>
+                        <li>Notez tous les ajustements pour reproductibilité</li>
+                    </ol>
+                </div>
+            </section>
+
+            <section class="guide-section">
+                <h2>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#ffd700" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="display: inline-block; vertical-align: middle; margin-right: 8px;">
+                        <line x1="12" y1="20" x2="12" y2="10"></line>
+                        <line x1="18" y1="20" x2="18" y2="4"></line>
+                        <line x1="6" y1="20" x2="6" y2="16"></line>
+                    </svg>
+                    Contrôle Qualité Final
+                </h2>
+                <div class="step-content">
+                    <h3>Tests de Fonctionnement</h3>
+                    <ul class="checklist">
+                        <li>Test de marche : 72 heures minimum</li>
+                        <li>Vérification de la précision : écart < 1 minute/jour</li>
+                        <li>Test d'amplitude du balancier</li>
+                        <li>Vérification de tous les sons (tic-tac régulier)</li>
+                        <li>Test de remontage complet</li>
+                        <li>Vérification de l'étanchéité (si applicable)</li>
+                    </ul>
+
+                    <h3>Documentation de la Restauration</h3>
+                    <p>
+                        Conservez un dossier complet incluant :
+                    </p>
+                    <ul>
+                        <li>Photos avant/pendant/après</li>
+                        <li>Liste des pièces remplacées</li>
+                        <li>Techniques utilisées</li>
+                        <li>Problèmes rencontrés et solutions</li>
+                        <li>Réglages effectués</li>
+                        <li>Date de la restauration</li>
+                    </ul>
+                </div>
+            </section>
+
+        </div>
+
+        <div class="guide-footer">
+            <a href="{{ path('app_restoration') }}" class="btn-adhesion">Retour aux guides</a>
+            <a href="{{ path('app_community') }}" class="btn-secondary">Partager votre expérience</a>
+        </div>
+
+    </div>
+</div>
+{% endblock %}

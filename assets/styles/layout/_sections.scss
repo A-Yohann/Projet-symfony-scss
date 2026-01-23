@@ -1,3 +1,5 @@
+@use "../base/variables" as *;
+
 .section-title {
     text-align: center;
     font-size: 1.8rem;
@@ -34,5 +36,13 @@
     padding: 30px;
     background: rgba($color-brown, 0.4);
     border-radius: 10px;
+    text-align: center;
+}
+
+.why-section{
+    text-align: center;
+}
+
+.pillars-section{
     text-align: center;
 }

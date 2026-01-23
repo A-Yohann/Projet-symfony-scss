@@ -58,23 +58,29 @@
         <img src="{{ asset('img/ligne-titre.png') }}" alt="Décor titre" class="title-decor">
 
         <div class="features-grid">
-            <article class="feature-card">
-                <img src="{{ asset('img/gallery.jpg') }}" alt="Galerie" class="feature-img">
-                <h3>Galerie des Collections</h3>
-                <p>Découvrez des pièces rares et exceptionnelles.</p>
-            </article>
+            <a href="{{ path('app_gallery') }}" style="text-decoration: none; color: inherit;">
+                <article class="feature-card">
+                    <img src="{{ asset('img/gallery.jpg') }}" alt="Galerie" class="feature-img">
+                    <h3>Galerie des Collections</h3>
+                    <p>Découvrez des pièces rares et exceptionnelles.</p>
+                </article>
+            </a>
 
-            <article class="feature-card">
-                <img src="{{ asset('img/entretien-horloge.webp') }}" alt="Restauration" class="feature-img">
-                <h3>Guides de Restauration</h3>
-                <p>Des tutoriels traditionnels et précis.</p>
-            </article>
+            <a href="{{ path('app_restoration') }}" style="text-decoration: none; color: inherit;">
+                <article class="feature-card">
+                    <img src="{{ asset('img/entretien-horloge.webp') }}" alt="Restauration" class="feature-img">
+                    <h3>Guides de Restauration</h3>
+                    <p>Des tutoriels traditionnels et précis.</p>
+                </article>
+            </a>
 
-            <article class="feature-card">
-                <img src="{{ asset('img/communaute.avif') }}" alt="Communauté" class="feature-img">
-                <h3>Réseau de Passionnés</h3>
-                <p>Une communauté bienveillante et experte.</p>
-            </article>
+            <a href="{{ path('app_community') }}" style="text-decoration: none; color: inherit;">
+                <article class="feature-card">
+                    <img src="{{ asset('img/communaute.avif') }}" alt="Communauté" class="feature-img">
+                    <h3>Réseau de Passionnés</h3>
+                    <p>Une communauté bienveillante et experte.</p>
+                </article>
+            </a>
         </div>
     </section>
 

@@ -1,7 +1,7 @@
 @use "base/variables";
 @use "base/body";
 
-@use "layout/navigation";
+@use "layout/navbar";
 @use "layout/hero";
 @use "layout/sections";
 
@@ -10,4 +10,7 @@
 
 @use "pages/home";
 
+@use "base/responsive";
 
+@use "pages/login";
+@use "pages/register";

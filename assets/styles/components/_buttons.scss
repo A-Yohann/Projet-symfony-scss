@@ -1,3 +1,4 @@
+@use "../base/variables" as *;
 .btn-adhesion {
     background: linear-gradient(135deg, $color-border, $color-primary);
     color: $color-dark;

@@ -1,14 +1,29 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Accueil Horloge{% endblock %}
+{% block title %}Gallery{% endblock %}
 
 {% block body %}
-<div class="example-wrapper">
-    <h1>Bienvenue sur la page Horloge !</h1>
-    {% if app.user %}
-        <p>Vous êtes connecté avec : {{ app.user.email }}</p>
-    {% else %}
-        <p>Vous n’êtes pas connecté.</p>
-    {% endif %}
-</div>
+<h1>Gallery des Horloges</h1>
+
+<a href="{{ path('categorie_horloge_new') }}">Ajouter une horloge</a>
+
+{% for cat in categories %}
+    <div class="horloge-card">
+        {% if cat.image %}
+            <img src="{{ asset('uploads/' ~ cat.image) }}" alt="{{ cat.nom }}">
+        {% endif %}
+        <h3>{{ cat.nom }}</h3>
+        <p>{{ cat.description }}</p>
+
+        {% if cat.user == app.user %}
+            <a href="{{ path('categorie_horloge_edit', {id: cat.id}) }}">Modifier</a>
+            <form method="post" action="{{ path('categorie_horloge_delete', {id: cat.id}) }}" style="display:inline">
+                <input type="hidden" name="_token" value="{{ csrf_token('delete' ~ cat.id) }}">
+                <button type="submit">Supprimer</button>
+            </form>
+        {% endif %}
+    </div>
+{% else %}
+    <p>Aucune horloge disponible pour le moment.</p>
+{% endfor %}
 {% endblock %}

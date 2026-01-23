@@ -1,0 +1,33 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Gallery des Horloges{% endblock %}
+
+{% block body %}
+<h1>Gallery des Horloges</h1>
+
+<a href="{{ path('categorie_horloge_new') }}" class="btn btn-primary" style="margin-bottom:20px;">Ajouter une horloge</a>
+
+<div style="display:flex; flex-wrap:wrap; gap:20px;">
+    {% for cat in categories %}
+        <div style="border:1px solid #ccc; padding:15px; width:200px; text-align:center; border-radius:10px;">
+            {% if cat.image %}
+                <img src="{{ asset('uploads/' ~ cat.image) }}" alt="{{ cat.nom }}" style="max-width:100%; border-radius:5px; margin-bottom:10px;">
+            {% endif %}
+            <h3>{{ cat.nom }}</h3>
+            <p>{{ cat.description }}</p>
+
+            {% if cat.user == app.user %}
+                <div style="margin-top:10px;">
+                    <a href="{{ path('categorie_horloge_edit', {id: cat.id}) }}" class="btn btn-sm btn-warning">Modifier</a>
+                    <form method="post" action="{{ path('categorie_horloge_delete', {id: cat.id}) }}" style="display:inline;">
+                        <input type="hidden" name="_token" value="{{ csrf_token('delete' ~ cat.id) }}">
+                        <button type="submit" class="btn btn-sm btn-danger">Supprimer</button>
+                    </form>
+                </div>
+            {% endif %}
+        </div>
+    {% else %}
+        <p>Aucune horloge pour le moment.</p>
+    {% endfor %}
+</div>
+{% endblock %}

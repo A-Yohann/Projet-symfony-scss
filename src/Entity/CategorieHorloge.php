@@ -7,6 +7,7 @@ use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
+use App\Entity\User;
 
 #[ORM\Entity(repositoryClass: CategorieHorlogeRepository::class)]
 class CategorieHorloge
@@ -21,6 +22,13 @@ class CategorieHorloge
 
     #[ORM\Column(type: Types::TEXT, nullable: true)]
     private ?string $description = null;
+
+    #[ORM\Column(length: 255, nullable: true)]
+    private ?string $image = null;
+
+    #[ORM\ManyToOne(targetEntity: User::class)]
+    #[ORM\JoinColumn(nullable: false)]
+    private ?User $user = null;
 
     /**
      * @var Collection<int, PieceHorlogere>
@@ -40,11 +48,17 @@ class CategorieHorloge
         $this->conseilConservations = new ArrayCollection();
     }
 
+    // --------------------
+    // ID
+    // --------------------
     public function getId(): ?int
     {
         return $this->id;
     }
 
+    // --------------------
+    // Nom
+    // --------------------
     public function getNom(): ?string
     {
         return $this->nom;
@@ -53,10 +67,12 @@ class CategorieHorloge
     public function setNom(string $nom): static
     {
         $this->nom = $nom;
-
         return $this;
     }
 
+    // --------------------
+    // Description
+    // --------------------
     public function getDescription(): ?string
     {
         return $this->description;
@@ -65,10 +81,40 @@ class CategorieHorloge
     public function setDescription(?string $description): static
     {
         $this->description = $description;
-
         return $this;
     }
 
+    // --------------------
+    // Image
+    // --------------------
+    public function getImage(): ?string
+    {
+        return $this->image;
+    }
+
+    public function setImage(?string $image): static
+    {
+        $this->image = $image;
+        return $this;
+    }
+
+    // --------------------
+    // User (propriétaire)
+    // --------------------
+    public function getUser(): ?User
+    {
+        return $this->user;
+    }
+
+    public function setUser(User $user): static
+    {
+        $this->user = $user;
+        return $this;
+    }
+
+    // --------------------
+    // PieceHorlogere
+    // --------------------
     /**
      * @return Collection<int, PieceHorlogere>
      */
@@ -83,22 +129,22 @@ class CategorieHorloge
             $this->pieceHorlogeres->add($pieceHorlogere);
             $pieceHorlogere->setCategorie($this);
         }
-
         return $this;
     }
 
     public function removePieceHorlogere(PieceHorlogere $pieceHorlogere): static
     {
         if ($this->pieceHorlogeres->removeElement($pieceHorlogere)) {
-            // set the owning side to null (unless already changed)
             if ($pieceHorlogere->getCategorie() === $this) {
                 $pieceHorlogere->setCategorie(null);
             }
         }
-
         return $this;
     }
 
+    // --------------------
+    // ConseilConservation
+    // --------------------
     /**
      * @return Collection<int, ConseilConservation>
      */
@@ -113,19 +159,16 @@ class CategorieHorloge
             $this->conseilConservations->add($conseilConservation);
             $conseilConservation->setCategorie($this);
         }
-
         return $this;
     }
 
     public function removeConseilConservation(ConseilConservation $conseilConservation): static
     {
         if ($this->conseilConservations->removeElement($conseilConservation)) {
-            // set the owning side to null (unless already changed)
             if ($conseilConservation->getCategorie() === $this) {
                 $conseilConservation->setCategorie(null);
             }
         }
-
         return $this;
     }
 }

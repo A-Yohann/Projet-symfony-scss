@@ -1,0 +1,153 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Guides de Restauration{% endblock %}
+
+{% block body %}
+<div class="auth-page">
+    <div class="auth-box restoration-container">
+        <h1 class="auth-title">Guides de Restauration</h1>
+        <p class="intro-text">
+            Découvrez nos guides détaillés pour restaurer et entretenir vos horloges anciennes avec précision et savoir-faire.
+        </p>
+
+        <div class="guides-grid">
+
+            {# Guide 1 - Entretien de base #}
+            <article class="guide-card">
+                <div class="guide-icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="#ffd700" stroke-width="2">
+                        <circle cx="12" cy="12" r="10"/>
+                        <polyline points="12 6 12 12 16 14"/>
+                    </svg>
+                </div>
+
+                <h3>Entretien de Base</h3>
+                <p>
+                    Apprenez les gestes essentiels pour nettoyer et huiler votre mécanisme d'horloge. Guide idéal pour les débutants.
+                </p>
+                <ul>
+                    <li>Nettoyage du boîtier</li>
+                    <li>Lubrification des rouages</li>
+                    <li>Réglage de précision</li>
+                    <li>Outils nécessaires</li>
+                </ul>
+
+                {% if is_granted('ROLE_ADHERENT') %}
+                    <a href="{{ path('app_restoration_basic') }}" class="btn-adhesion">
+                        Lire le guide
+                    </a>
+                {% else %}
+                    <div class="locked-access">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18"
+                             fill="none" stroke="currentColor" stroke-width="2"
+                             stroke-linecap="round" stroke-linejoin="round">
+                            <rect x="3" y="11" width="18" height="11" rx="2"/>
+                            <path d="M7 11V7a5 5 0 0 1 10 0v4"/>
+                        </svg>
+                        <a href="{{ path('app_register') }}" class="locked-link">
+                            Réservé aux membres
+                        </a>
+                    </div>
+                {% endif %}
+            </article>
+
+            {# Guide 2 - Restauration avancée #}
+            <article class="guide-card">
+                <div class="guide-icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="#ffd700" stroke-width="2">
+                        <path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94z"/>
+                    </svg>
+                </div>
+
+                <h3>Restauration Avancée</h3>
+                <p>
+                    Techniques professionnelles pour restaurer les mécanismes complexes et réparer les pièces endommagées.
+                </p>
+                <ul>
+                    <li>Remplacement de pièces</li>
+                    <li>Réparation d'échappement</li>
+                    <li>Restauration de cadran</li>
+                    <li>Techniques d'horloger</li>
+                </ul>
+
+                {% if is_granted('ROLE_ADHERENT') %}
+                    <a href="{{ path('app_restoration_advanced') }}" class="btn-adhesion">
+                        Lire le guide
+                    </a>
+                {% else %}
+                    <div class="locked-access">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18"
+                             fill="none" stroke="currentColor" stroke-width="2"
+                             stroke-linecap="round" stroke-linejoin="round">
+                            <rect x="3" y="11" width="18" height="11" rx="2"/>
+                            <path d="M7 11V7a5 5 0 0 1 10 0v4"/>
+                        </svg>
+                        <a href="{{ path('app_register') }}" class="locked-link">
+                            Réservé aux membres
+                        </a>
+                    </div>
+                {% endif %}
+            </article>
+
+            {# Guide 3 - Conservation #}
+            <article class="guide-card">
+                <div class="guide-icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="#ffd700" stroke-width="2">
+                        <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+                    </svg>
+                </div>
+
+                <h3>Conservation Optimale</h3>
+                <p>
+                    Préservez vos horloges anciennes dans les meilleures conditions pour les générations futures.
+                </p>
+                <ul>
+                    <li>Conditions de stockage</li>
+                    <li>Protection contre l'humidité</li>
+                    <li>Entretien préventif</li>
+                    <li>Documentation historique</li>
+                </ul>
+
+                {% if is_granted('ROLE_ADHERENT') %}
+                    <a href="{{ path('app_restoration_conservation') }}" class="btn-adhesion">
+                        Lire le guide
+                    </a>
+                {% else %}
+                    <div class="locked-access">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18"
+                             fill="none" stroke="currentColor" stroke-width="2"
+                             stroke-linecap="round" stroke-linejoin="round">
+                            <rect x="3" y="11" width="18" height="11" rx="2"/>
+                            <path d="M7 11V7a5 5 0 0 1 10 0v4"/>
+                        </svg>
+                        <a href="{{ path('app_register') }}" class="locked-link">
+                            Réservé aux membres
+                        </a>
+                    </div>
+                {% endif %}
+            </article>
+
+        </div>
+
+        {# Section conseils supplémentaires (inchangée) #}
+        <div class="expert-tips">
+            <h2>Conseils de nos Experts</h2>
+            <div class="tips-grid">
+                <div class="tip-item">
+                    <h4>Outils Recommandés</h4>
+                    <p>Investissez dans des outils de qualité professionnelle pour un travail précis et durable.</p>
+                </div>
+                <div class="tip-item">
+                    <h4>Formation Continue</h4>
+                    <p>Participez à nos ateliers et webinaires pour perfectionner vos techniques de restauration.</p>
+                </div>
+                <div class="tip-item">
+                    <h4>Entraide</h4>
+                    <p>Rejoignez notre communauté pour échanger conseils et expériences avec d'autres passionnés.</p>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+{% endblock %}

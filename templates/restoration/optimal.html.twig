@@ -1,0 +1,164 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Conservation Optimale - Guides de Restauration{% endblock %}
+
+{% block body %}
+<div class="auth-page">
+    <div class="auth-box guide-detail-container">
+        <a href="{{ path('app_restoration') }}" class="back-link">← Retour aux guides</a>
+
+        <h1 class="auth-title">Conservation Optimale</h1>
+
+        <div class="guide-hero">
+            <svg xmlns="http://www.w3.org/2000/svg" width="80" height="80" viewBox="0 0 24 24" fill="none" stroke="#ffd700" stroke-width="2">
+                <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
+            </svg>
+        </div>
+
+        <p class="guide-intro">
+            Préserver vos horloges anciennes dans les meilleures conditions pour les générations futures.
+            Ce guide couvre tous les aspects de la conservation à long terme.
+        </p>
+
+        <div class="guide-content">
+
+            <!-- ================= CONDITIONS DE STOCKAGE ================= -->
+            <section class="guide-section">
+                <h2>Conditions de Stockage Idéales</h2>
+
+                <div class="step-content">
+                    <h3>Température et Humidité</h3>
+
+                    <div class="conditions-grid">
+                        <div class="condition-card optimal">
+                            <h4>Conditions Optimales</h4>
+                            <ul>
+                                <li><strong>Température :</strong> 18-22°C</li>
+                                <li><strong>Humidité relative :</strong> 40-60%</li>
+                                <li><strong>Stabilité :</strong> Variations &lt; 2°C par jour</li>
+                            </ul>
+                        </div>
+
+                        <div class="condition-card danger">
+                            <h4>À Éviter Absolument</h4>
+                            <ul>
+                                <li><strong>Température :</strong> &lt; 10°C ou &gt; 28°C</li>
+                                <li><strong>Humidité :</strong> &lt; 30% ou &gt; 70%</li>
+                                <li>Variations brusques de température</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <h3>Emplacement Idéal</h3>
+                    <ul>
+                        <li>Éviter radiateurs, cheminées et soleil direct</li>
+                        <li>Éviter pièces humides (cave, salle de bain)</li>
+                        <li>Privilégier murs intérieurs stables</li>
+                        <li>Limiter vibrations et chocs</li>
+                    </ul>
+                </div>
+            </section>
+
+            <!-- ================= PROTECTION HUMIDITÉ ================= -->
+            <section class="guide-section">
+                <h2>Protection Contre l'Humidité</h2>
+
+                <div class="step-content">
+                    <h3>Dangers de l'Humidité</h3>
+                    <ul>
+                        <li>Oxydation des métaux</li>
+                        <li>Corrosion des laitons</li>
+                        <li>Moisissures</li>
+                        <li>Déformation du bois</li>
+                        <li>Blocage des huiles</li>
+                    </ul>
+                </div>
+            </section>
+
+            <!-- ================= ENTRETIEN ================= -->
+            <section class="guide-section">
+                <h2>Entretien Préventif</h2>
+
+                <div class="step-content">
+                    <h3>Calendrier d'Entretien</h3>
+
+                    <ul>
+                        <li><strong>Quotidien :</strong> Remontage et contrôle visuel</li>
+                        <li><strong>Hebdomadaire :</strong> Dépoussiérage léger</li>
+                        <li><strong>Mensuel :</strong> Inspection détaillée</li>
+                        <li><strong>Annuel :</strong> Entretien professionnel</li>
+                        <li><strong>Tous les 3–5 ans :</strong> Révision complète</li>
+                    </ul>
+                </div>
+            </section>
+
+            <!-- ================= DOCUMENTATION ================= -->
+            <section class="guide-section">
+                <h2>Documentation Historique</h2>
+
+                <div class="step-content">
+                    <h3>Éléments à Documenter</h3>
+                    <ul>
+                        <li>Informations techniques</li>
+                        <li>Historique et provenance</li>
+                        <li>Interventions et restaurations</li>
+                        <li>Photos et certificats</li>
+                    </ul>
+                </div>
+            </section>
+
+            <!-- ================= COLLECTION ================= -->
+            <section class="guide-section">
+                <h2>Conservation pour Collection</h2>
+
+                <div class="step-content">
+                    <h3>Organisation de la Collection</h3>
+                    <ul>
+                        <li><strong>Catalogage :</strong> Inventaire détaillé avec photos</li>
+                        <li><strong>Rotation :</strong> Faire fonctionner les horloges périodiquement</li>
+                    </ul>
+
+                    <h3>Assurance et Évaluation</h3>
+                    <div class="insurance-info">
+                        <ul>
+                            <li>Évaluation par expert</li>
+                            <li>Mise à jour tous les 3-5 ans</li>
+                            <li>Assurance spécifique objets d’art</li>
+                            <li>Conservation des preuves de valeur</li>
+                        </ul>
+                    </div>
+
+                    <h3>Transmission et Héritage</h3>
+                    <ul>
+                        <li>Inventaire avec valeurs actualisées</li>
+                        <li>Documentation historique</li>
+                        <li>Formation des héritiers</li>
+                        <li>Coordonnées d’horlogers</li>
+                    </ul>
+                </div>
+            </section>
+
+            <!-- ================= ENVIRONNEMENT ================= -->
+            <section class="guide-section">
+                <h2>Aspects Environnementaux</h2>
+
+                <div class="step-content">
+                    <ul>
+                        <li>Produits écologiques</li>
+                        <li>Éclairage LED basse consommation</li>
+                        <li>Restauration plutôt que remplacement</li>
+                        <li>Valorisation du patrimoine horloger</li>
+                    </ul>
+                </div>
+            </section>
+
+        </div>
+
+        <div class="guide-footer">
+            <a href="{{ path('app_restoration') }}" class="btn-adhesion">Retour aux guides</a>
+            <a href="{{ path('app_community') }}" class="btn-secondary">Partager vos astuces</a>
+        </div>
+
+    </div>
+</div>
+{% endblock %}
