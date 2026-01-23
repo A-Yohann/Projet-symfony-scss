@@ -1,0 +1,15 @@
+.btn-adhesion {
+    background: linear-gradient(135deg, $color-border, $color-primary);
+    color: $color-dark;
+    padding: 15px 50px;
+    border-radius: 30px;
+    text-decoration: none;
+    font-weight: bold;
+    letter-spacing: 2px;
+    transition: all 0.3s ease;
+
+    &:hover {
+        background: linear-gradient(135deg, $color-primary, $color-gold);
+        transform: scale(1.05);
+    }
+}

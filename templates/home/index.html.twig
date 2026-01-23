@@ -1,0 +1,90 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+<div class="page-wrapper">
+
+    <!-- HERO SECTION -->
+    <!-- HERO SECTION -->
+<section class="hero-section">
+    <div class="hero-overlay">
+
+        <div class="hero-content-left">
+            <!-- IMAGE PRINCIPALE -->
+            <img src="{{ asset('img/horloge-header.png') }}" alt="Ornement décoratif" class="hero-img" onerror="this.style.display='none'">
+
+            <!-- TEXTE -->
+            <div class="hero-text hero-text-overlay">
+                <h1>LE CERCLE DES COLLECTIONNEURS PASSIONNÉS</h1>
+                <h2 class="section-title">EN LIEN POUR CEUX QUI AIMENT LE TEMPS</h2>
+                <p>
+                    Le Cercle des Collectionneurs Passionnés rassemble des amateurs et experts 
+                    d'horlogerie ancienne. Nous partageons notre passion pour les mécanismes 
+                    d'exception et la préservation du patrimoine horloger.
+                </p>
+                <p>
+                    Membre émérite de la Fédération Internationale d'Horlogerie Ancienne (FIHA)  
+                    Reconnue par le Ministère de la Culture et du Patrimoine.
+                </p>
+            </div>
+        </div>
+
+    </div>
+</section>
+
+
+    <!-- POURQUOI -->
+    <section class="why-section">
+        <h2 class="section-title">POURQUOI CE CERCLE EXISTE ?</h2>
+        <img src="{{ asset('img/ligne-titre.png') }}" alt="Décor titre" class="title-decor">
+
+        <div class="quote-section">
+            <p>
+                « Au-delà de l'objet, c'est l'histoire d'un savoir-faire qui nous fascine.
+                Chaque horloge raconte un voyage à travers le temps. »
+            </p>
+        </div>
+
+        <div class="description-box">
+            <p>
+                Notre cercle permet à chacun de partager ses découvertes, d'échanger des conseils 
+                de restauration et de perpétuer la tradition horlogère.
+            </p>
+        </div>
+    </section>
+
+    <!-- LES PILIERS -->
+    <section class="pillars-section">
+        <h2 class="section-title">CE QUE VOUS TROUVEREZ A L'INTERIEUR</h2>
+        <img src="{{ asset('img/ligne-titre.png') }}" alt="Décor titre" class="title-decor">
+
+        <div class="features-grid">
+            <article class="feature-card">
+                <img src="{{ asset('img/gallery.jpg') }}" alt="Galerie" class="feature-img">
+                <h3>Galerie des Collections</h3>
+                <p>Découvrez des pièces rares et exceptionnelles.</p>
+            </article>
+
+            <article class="feature-card">
+                <img src="{{ asset('img/entretien-horloge.webp') }}" alt="Restauration" class="feature-img">
+                <h3>Guides de Restauration</h3>
+                <p>Des tutoriels traditionnels et précis.</p>
+            </article>
+
+            <article class="feature-card">
+                <img src="{{ asset('img/communaute.avif') }}" alt="Communauté" class="feature-img">
+                <h3>Réseau de Passionnés</h3>
+                <p>Une communauté bienveillante et experte.</p>
+            </article>
+        </div>
+    </section>
+
+    <!-- ADHESION -->
+    <section class="adhesion-section">
+        <h2>Adhésion</h2>
+        <img src="{{ asset('img/adhesion.png') }}" alt="Adhésion" class="adhesion-img">
+        <p>Accédez à l'ensemble des ressources et événements.</p>
+        <a href="{{ path('app_register') }}" class="btn-adhesion">Devenir Membre</a>
+    </section>
+
+</div>
+{% endblock %}
