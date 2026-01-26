@@ -1,0 +1,20 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Un soucis ? Contactez-moi via ce formulaire{% endblock %}
+
+{% block body %}
+<div class="auth-page">
+    <div class="auth-box">
+        <h1 class="auth-title">Contact</h1>
+
+        {{ form_start(form, { attr: { class: 'auth-form' } }) }}
+            {{ form_row(form.name) }}
+            {{ form_row(form.email) }}
+            {{ form_row(form.message) }}
+
+
+        {{ form_end(form) }}
+    </div>
+</div>
+
+{% endblock %}

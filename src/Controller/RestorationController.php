@@ -31,10 +31,10 @@ class RestorationController extends AbstractController
         return $this->render('restoration/advanced.html.twig');
     }
 
-    #[Route('/restauration/conservation', name: 'app_restoration_conservation')]
+    #[Route('/restauration/conservation', name: 'app_restoration_optimal')]
     #[IsGranted('ROLE_ADHERENT')]
     public function conservation(): Response
     {
-        return $this->render('restoration/conservation.html.twig');
+        return $this->render('restoration/optimal.html.twig');
     }
 }
