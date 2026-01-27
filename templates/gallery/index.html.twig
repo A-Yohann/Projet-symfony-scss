@@ -2,42 +2,46 @@
 
 {% block title %}Gallery des Horloges{% endblock %}
 
-
-
 {% block body %}
 <div class="gallery-container">
     <h1 class="section-title">Gallery des Horloges</h1>
 
+    {# Bouton Retour à l'accueil #}
+    <a href="{{ path('app_home') }}" class="btn btn-retour">← Retour à l'accueil</a>
+
+    {# Bouton Ajouter une horloge #}
     <a href="{{ path('categorie_horloge_new') }}" class="btn btn-primary btn-add">Ajouter une horloge</a>
 
     <div class="cards-wrapper">
         {% for cat in categories %}
-            <div class="card-horloge">
-                <div class="card-image-container">
-                    {% if cat.image %}
-                        <img src="{{ asset('uploads/' ~ cat.image) }}" alt="{{ cat.nom }}" class="card-image">
-                    {% else %}
-                        <div class="card-image-placeholder">
-                            <span>Aucune image</span>
-                        </div>
-                    {% endif %}
-                </div>
-                
-                <div class="card-content">
-                    <h3>{{ cat.nom }}</h3>
-                    <p>{{ cat.description }}</p>
+            <a href="{{ path('app_horloge_show', {id: cat.id}) }}" class="card-horloge-link">
+                <div class="card-horloge">
+                    <div class="card-image-container">
+                        {% if cat.image %}
+                            <img src="{{ asset('uploads/' ~ cat.image) }}" alt="{{ cat.nom }}" class="card-image">
+                        {% else %}
+                            <div class="card-image-placeholder">
+                                <span>Aucune image</span>
+                            </div>
+                        {% endif %}
+                    </div>
+                    
+                    <div class="card-content">
+                        <h3>{{ cat.nom }}</h3>
+                        {# <p>{{ cat.description }}</p> #}
 
-                    {% if cat.user == app.user %}
-                        <div class="card-actions">
-                            <a href="{{ path('categorie_horloge_edit', {id: cat.id}) }}" class="btn btn-sm btn-warning">Modifier</a>
-                            <form method="post" action="{{ path('categorie_horloge_delete', {id: cat.id}) }}" class="delete-form">
-                                <input type="hidden" name="_token" value="{{ csrf_token('delete' ~ cat.id) }}">
-                                <button type="submit" class="btn btn-sm btn-danger">Supprimer</button>
-                            </form>
-                        </div>
-                    {% endif %}
+                        {% if cat.user == app.user %}
+                            <div class="card-actions">
+                                <a href="{{ path('categorie_horloge_edit', {id: cat.id}) }}" class="btn btn-sm btn-warning">Modifier</a>
+                                <form method="post" action="{{ path('categorie_horloge_delete', {id: cat.id}) }}" class="delete-form">
+                                    <input type="hidden" name="_token" value="{{ csrf_token('delete' ~ cat.id) }}">
+                                    <button type="submit" class="btn btn-sm btn-danger">Supprimer</button>
+                                </form>
+                            </div>
+                        {% endif %}
+                    </div>
                 </div>
-            </div>
+            </a>
         {% else %}
             <p class="no-horloges">Aucune horloge pour le moment.</p>
         {% endfor %}

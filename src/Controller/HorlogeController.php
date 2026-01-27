@@ -2,6 +2,7 @@
 
 namespace App\Controller;
 
+use App\Entity\CategorieHorloge;
 use App\Repository\CategorieHorlogeRepository; 
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
@@ -16,6 +17,14 @@ class HorlogeController extends AbstractController
 
         return $this->render('horloge/horloge.html.twig', [
             'categories' => $categories, 
+        ]);
+    }
+
+    #[Route('/horloge/{id}', name: 'app_horloge_show')]
+    public function show(CategorieHorloge $horloge): Response
+    {
+        return $this->render('horloge/show.html.twig', [
+            'horloge' => $horloge,
         ]);
     }
 }

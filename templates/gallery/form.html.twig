@@ -3,10 +3,18 @@
 {% block title %}{{ title }}{% endblock %}
 
 {% block body %}
-<h1>{{ title }}</h1>
+<div class="auth-page">
+    <div class="auth-box">
+        <h1 class="auth-title">{{ title }}</h1>
 
-{{ form_start(form, {'attr': {'enctype': 'multipart/form-data'}}) }}
-{{ form_widget(form) }}
-<button type="submit" class="btn btn-primary">{{ title }}</button>
-{{ form_end(form) }}
+        {{ form_start(form, { attr: { class: 'auth-form', 'enctype': 'multipart/form-data' } }) }}
+            {% for field in form %}
+                {% if field.vars.name != '_token' %}
+                    {{ form_row(field) }}
+                {% endif %}
+            {% endfor %}
+            <button type="submit" class="btn-adhesion">{{ title }}</button>
+        {{ form_end(form) }}
+    </div>
+</div>
 {% endblock %}

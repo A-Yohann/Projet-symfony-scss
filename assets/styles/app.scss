@@ -9,9 +9,11 @@
 @use "components/buttons";
 @use "components/cards";
 
-@use "pages/home";
-
 @use "base/responsive";
 
+
+@use "pages/home";
 @use "pages/login";
 @use "pages/register";
+@use "pages/guide";
+@use "pages/horloge";

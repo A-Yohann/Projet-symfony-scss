@@ -1,0 +1,19 @@
+
+
+.guide-card {
+    display: flex;
+    flex-direction: column;
+}
+
+.guide-icon {
+    margin-bottom: 24px;
+}
+
+.guide-card ul {
+    margin-bottom: 24px;
+}
+
+.guide-card .btn-adhesion,
+.guide-card .locked-access {
+    margin-top: auto;
+}

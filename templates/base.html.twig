@@ -10,17 +10,26 @@
 <body>
     <div>
         <div class="hero-overlay">
-            <!-- Menu de navigation -->
             <nav class="main-navigation">
                 <a href="{{ path('app_home') }}" class="nav-link">Accueil</a>
                 <a href="{{ path('app_gallery')}}" class="nav-link">Galerie</a>
-                <a href="{{path('app_contact')}}" class="nav-link">Contact</a>
-                <a href="{{ path('app_register') }}" class="nav-link">Inscription</a>
-                <a href="{{ path('app_login') }}" class="nav-link">Connexion</a>
-            </nav>
+                <a href="{{ path('app_contact')}}" class="nav-link">Contact</a>
 
+                {% if is_granted('ROLE_ADMIN') %}
+                    <a href="{{ path('admin') }}" class="nav-link">Admin</a>
+                {% endif %}
+
+                {% if app.user %}
+                    <span class="nav-link">Bonjour, {{ app.user.userIdentifier }}</span>
+                    <a href="{{ path('app_logout') }}" class="nav-link">Se déconnecter</a>
+                {% else %}
+                    <a href="{{ path('app_register') }}" class="nav-link">Inscription</a>
+                    <a href="{{ path('app_login') }}" class="nav-link">Connexion</a>
+                {% endif %}
+            </nav>
         </div>
     </div>
+
 <main>
     {% block body %}{% endblock %}
 </main>

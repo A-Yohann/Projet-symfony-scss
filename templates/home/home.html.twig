@@ -4,31 +4,63 @@
 <div class="page-wrapper">
 
     <!-- HERO SECTION -->
-    <!-- HERO SECTION -->
-<section class="hero-section">
-    <div class="hero-overlay">
+    <section class="hero-section">
+        <div class="hero-overlay">
 
-        <div class="hero-content-left">
-            <!-- IMAGE PRINCIPALE -->
-            <img src="{{ asset('img/horloge-header.png') }}" alt="Ornement décoratif" class="hero-img" onerror="this.style.display='none'">
-
-            <!-- TEXTE -->
-            <div class="hero-text hero-text-overlay">
-                <h1>LE CERCLE DES COLLECTIONNEURS PASSIONNÉS</h1>
-                <h2 class="section-title">EN LIEN POUR CEUX QUI AIMENT LE TEMPS</h2>
-                <p>
-                    Le Cercle des Collectionneurs Passionnés rassemble des amateurs et experts 
-                    d'horlogerie ancienne. Nous partageons notre passion pour les mécanismes 
-                    d'exception et la préservation du patrimoine horloger.
-                </p>
-                <p>
-                    Membre émérite de la Fédération Internationale d'Horlogerie Ancienne (FIHA)  
-                    Reconnue par le Ministère de la Culture et du Patrimoine.
-                </p>
+            <div class="hero-content-left">
+                <img src="{{ asset('img/horloge-header.png') }}" alt="Ornement décoratif" class="hero-img" onerror="this.style.display='none'">
+                
+                <div class="hero-text hero-text-overlay">
+                    <h1>LE CERCLE DES COLLECTIONNEURS PASSIONNÉS</h1>
+                    <h2 class="section-title">EN LIEN POUR CEUX QUI AIMENT LE TEMPS</h2>
+                    <p>
+                        Le Cercle des Collectionneurs Passionnés rassemble des amateurs et experts 
+                        d'horlogerie ancienne. Nous partageons notre passion pour les mécanismes 
+                        d'exception et la préservation du patrimoine horloger.
+                    </p>
+                    <p>
+                        Membre émérite de la Fédération Internationale d'Horlogerie Ancienne (FIHA)  
+                        Reconnue par le Ministère de la Culture et du Patrimoine.
+                    </p>
+                </div>
             </div>
-        </div>
 
-    </div>
+        </div>
+    </section>
+
+    <!-- DERNIÈRES HORLOGES AJOUTÉES -->
+<section class="derniers-ajouts-section">
+    <h2 class="section-title">DERNIÈRES HORLOGES AJOUTÉES</h2>
+    <img src="{{ asset('img/ligne-titre.png') }}" alt="Décor titre" class="title-decor">
+
+    {% if dernieresHorloges is empty %}
+        <p class="no-content">Aucune horloge disponible pour le moment.</p>
+    {% else %}
+        <div class="cards-wrapper">
+            {% for horloge in dernieresHorloges %}
+                <div class="card-horloge">
+                    <div class="card-image-container">
+                        {% if horloge.image %}
+                            <img src="{{ asset('uploads/' ~ horloge.image) }}" alt="{{ horloge.nom }}" class="card-image">
+                        {% else %}
+                            <div class="card-image-placeholder">
+                                <span>Aucune image</span>
+                            </div>
+                        {% endif %}
+                    </div>
+
+                    <div class="card-content">
+                        <h3>{{ horloge.nom }}</h3>
+
+
+                        <a href="{{ path('app_horloge_show', {id: horloge.id}) }}" class="btn btn-sm btn-warning voir-plus-btn">
+                            Voir plus
+                        </a>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+    {% endif %}
 </section>
 
 
@@ -53,49 +85,48 @@
     </section>
 
     <!-- LES PILIERS -->
-<section class="pillars-section">
-    <h2 class="section-title">CE QUE VOUS TROUVEREZ A L'INTERIEUR</h2>
-    <img src="{{ asset('img/ligne-titre.png') }}" alt="Décor titre" class="title-decor">
+    <section class="pillars-section">
+        <h2 class="section-title">CE QUE VOUS TROUVEREZ A L'INTERIEUR</h2>
+        <img src="{{ asset('img/ligne-titre.png') }}" alt="Décor titre" class="title-decor">
 
-    <div class="features-grid">
-        <a href="{{ path('app_gallery') }}" class="feature-link">
-            <article class="feature-card">
-                <div class="feature-img-wrapper">
-                    <img src="{{ asset('img/gallery.jpg') }}" alt="Galerie" class="feature-img">
-                </div>
-                <div class="feature-content">
-                    <h3>Galerie des Collections</h3>
-                    <p>Découvrez des pièces rares et exceptionnelles.</p>
-                </div>
-            </article>
-        </a>
+        <div class="features-grid">
+            <a href="{{ path('app_gallery') }}" class="feature-link">
+                <article class="feature-card">
+                    <div class="feature-img-wrapper">
+                        <img src="{{ asset('img/gallery.jpg') }}" alt="Galerie" class="feature-img">
+                    </div>
+                    <div class="feature-content">
+                        <h3>Galerie des Collections</h3>
+                        <p>Découvrez des pièces rares et exceptionnelles.</p>
+                    </div>
+                </article>
+            </a>
 
-        <a href="{{ path('app_restoration') }}" class="feature-link">
-            <article class="feature-card">
-                <div class="feature-img-wrapper">
-                    <img src="{{ asset('img/entretien-horloge.webp') }}" alt="Restauration" class="feature-img">
-                </div>
-                <div class="feature-content">
-                    <h3>Guides de Restauration</h3>
-                    <p>Des tutoriels traditionnels et précis.</p>
-                </div>
-            </article>
-        </a>
+            <a href="{{ path('app_restoration') }}" class="feature-link">
+                <article class="feature-card">
+                    <div class="feature-img-wrapper">
+                        <img src="{{ asset('img/entretien-horloge.webp') }}" alt="Restauration" class="feature-img">
+                    </div>
+                    <div class="feature-content">
+                        <h3>Guides de Restauration</h3>
+                        <p>Des tutoriels traditionnels et précis.</p>
+                    </div>
+                </article>
+            </a>
 
-        <a href="{{ path('app_community') }}" class="feature-link">
-            <article class="feature-card">
-                <div class="feature-img-wrapper">
-                    <img src="{{ asset('img/communaute.avif') }}" alt="Communauté" class="feature-img">
-                </div>
-                <div class="feature-content">
-                    <h3>Réseau de Passionnés</h3>
-                    <p>Une communauté bienveillante et experte.</p>
-                </div>
-            </article>
-        </a>
-    </div>
-</section>
-
+            <a href="{{ path('app_community') }}" class="feature-link">
+                <article class="feature-card">
+                    <div class="feature-img-wrapper">
+                        <img src="{{ asset('img/communaute.avif') }}" alt="Communauté" class="feature-img">
+                    </div>
+                    <div class="feature-content">
+                        <h3>Réseau de Passionnés</h3>
+                        <p>Une communauté bienveillante et experte.</p>
+                    </div>
+                </article>
+            </a>
+        </div>
+    </section>
 
     <!-- ADHESION -->
     <section class="adhesion-section">

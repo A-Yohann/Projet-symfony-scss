@@ -1,0 +1,50 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}{{ horloge.nom }}{% endblock %}
+
+{% block body %}
+<div class="horloge-detail-container">
+    <div class="horloge-detail-wrapper">
+        <a href="{{ path('app_gallery') }}" class="btn-retour">← Retour à la galerie</a>
+        
+        <div class="horloge-detail-content">
+            <div class="horloge-detail-image">
+                {% if horloge.image %}
+                    <img src="{{ asset('uploads/' ~ horloge.image) }}" alt="{{ horloge.nom }}">
+                {% else %}
+                    <div class="no-image">
+                        <span>Aucune image disponible</span>
+                    </div>
+                {% endif %}
+            </div>
+            
+            <div class="horloge-detail-info">
+                <h1>{{ horloge.nom }}</h1>
+                
+                {% if horloge.description %}
+                    <div class="description-section">
+                        <h2>Description</h2>
+                        <p>{{ horloge.description }}</p>
+                    </div>
+                {% endif %}
+                
+                {% if horloge.user %}
+                    <div class="owner-info">
+                        <p><strong>Ajouté par :</strong> {{ horloge.user.email }}</p>
+                    </div>
+                {% endif %}
+                
+                {% if horloge.user == app.user %}
+                    <div class="action-buttons">
+                        <a href="{{ path('categorie_horloge_edit', {id: horloge.id}) }}" class="btn btn-warning">Modifier</a>
+                        <form method="post" action="{{ path('categorie_horloge_delete', {id: horloge.id}) }}" onsubmit="return confirm('Êtes-vous sûr de vouloir supprimer cette horloge ?');">
+                            <input type="hidden" name="_token" value="{{ csrf_token('delete' ~ horloge.id) }}">
+                            <button type="submit" class="btn btn-danger">Supprimer</button>
+                        </form>
+                    </div>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
