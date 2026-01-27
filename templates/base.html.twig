@@ -11,28 +11,43 @@
     <div>
         <div class="hero-overlay">
             <nav class="main-navigation">
-                <a href="{{ path('app_home') }}" class="nav-link">Accueil</a>
-                <a href="{{ path('app_gallery')}}" class="nav-link">Galerie</a>
-                <a href="{{ path('app_contact')}}" class="nav-link">Contact</a>
+                <div class="nav-left">
+                    <a href="{{ path('app_home') }}" class="nav-link">Accueil</a>
+                    <a href="{{ path('app_gallery')}}" class="nav-link">Galerie</a>
+                    <a href="{{ path('app_contact')}}" class="nav-link">Contact</a>
 
-                {% if is_granted('ROLE_ADMIN') %}
-                    <a href="{{ path('admin') }}" class="nav-link">Admin</a>
-                {% endif %}
+                    {% if is_granted('ROLE_ADMIN') %}
+                        <a href="{{ path('admin') }}" class="nav-link">Admin</a>
+                    {% endif %}
+                </div>
 
-                {% if app.user %}
-                    <span class="nav-link">Bonjour, {{ app.user.userIdentifier }}</span>
-                    <a href="{{ path('app_logout') }}" class="nav-link">Se déconnecter</a>
-                {% else %}
-                    <a href="{{ path('app_register') }}" class="nav-link">Inscription</a>
-                    <a href="{{ path('app_login') }}" class="nav-link">Connexion</a>
-                {% endif %}
+                <div class="nav-right">
+                    {% if app.user %}
+                        <span class="nav-user">Bonjour, {{ app.user.userIdentifier }}</span>
+                        <a href="{{ path('app_logout') }}" class="nav-link">Se déconnecter</a>
+                    {% else %}
+                        <a href="{{ path('app_register') }}" class="nav-link">Inscription</a>
+                        <a href="{{ path('app_login') }}" class="nav-link">Connexion</a>
+                    {% endif %}
+                </div>
+
+                <button class="burger" aria-label="Menu">
+                    ☰
+                </button>
             </nav>
+
         </div>
     </div>
 
 <main>
     {% block body %}{% endblock %}
 </main>
+
+<footer class="site-footer">
+    <div class="footer-content">
+        <p>&copy; {{ "now"|date("Y") }} Le Cercle des Collectionneurs Passionnés. Tous droits réservés.</p>
+    </div>
+</footer>
 
 {% block javascripts %}
     {{ encore_entry_script_tags('app') }}

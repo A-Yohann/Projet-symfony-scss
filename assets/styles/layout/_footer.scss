@@ -1,0 +1,12 @@
+.site-footer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px 0;
+    text-align: center;
+    .footer-content{
+        p{
+            text-align: center;
+        }
+    }
+}

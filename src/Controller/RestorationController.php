@@ -16,23 +16,23 @@ class RestorationController extends AbstractController
         return $this->render('restoration/index.html.twig');
     }
 
-    // Guides spécifiques, seulement pour les adhérents
+    // Guides spécifiques, pour les membres (et automatiquement pour les adhérents grâce à la hiérarchie)
     #[Route('/restauration/base', name: 'app_restoration_basic')]
-    #[IsGranted('ROLE_ADHERENT')]
+    #[IsGranted('ROLE_MEMBRE')]
     public function basic(): Response
     {
         return $this->render('restoration/basic.html.twig');
     }
 
     #[Route('/restauration/avancee', name: 'app_restoration_advanced')]
-    #[IsGranted('ROLE_ADHERENT')]
+    #[IsGranted('ROLE_MEMBRE')]
     public function advanced(): Response
     {
         return $this->render('restoration/advanced.html.twig');
     }
 
     #[Route('/restauration/conservation', name: 'app_restoration_optimal')]
-    #[IsGranted('ROLE_ADHERENT')]
+    #[IsGranted('ROLE_MEMBRE')]
     public function conservation(): Response
     {
         return $this->render('restoration/optimal.html.twig');

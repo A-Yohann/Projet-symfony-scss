@@ -1,20 +1,51 @@
 @use "../base/variables" as *;
 
+/* ============================
+   FOND GLOBAL – TOUS SUPPORTS
+============================ */
+// body, .page-wrapper, .site-footer{
+//     background-image: url('../../img/fond1.png');
+//     background-size: cover;        // couvre tout l'écran
+//     background-position: center;   // centre l'image
+//     background-repeat: no-repeat;  // pas de répétition
+//     background-attachment: scroll; // fixe ou scroll selon mobile
+// }
 
-    // 768px
-
+/* ============================
+   MOBILE – 768px
+============================ */
 @media (max-width: $breakpoint-mobile) {
 
     /* BODY */
     body {
-        background-attachment: scroll;
+        background-attachment: scroll; // compatible mobile
     }
 
-    /* NAVIGATION */
+    /* ================= NAVIGATION ================= */
     .main-navigation {
         flex-wrap: wrap;
         gap: 15px;
         padding: 12px 20px;
+        position: relative;
+    }
+
+    .nav-left,
+    .nav-right {
+        width: 100%;
+        flex-direction: column;
+        align-items: center;
+        gap: 12px;
+        display: none;
+        background: rgba($color-dark, 0.95);
+        padding: 20px 0;
+        border-top: 1px solid $color-border;
+    }
+
+    .main-navigation.active {
+        .nav-left,
+        .nav-right {
+            display: flex;
+        }
     }
 
     .nav-link {
@@ -22,7 +53,25 @@
         font-size: 0.9rem;
     }
 
-    /* HERO */
+    .nav-user {
+        font-size: 0.85rem;
+        opacity: 0.8;
+    }
+
+    /* BURGER */
+    .burger {
+        display: block;
+        position: absolute;
+        right: 20px;
+        top: 14px;
+        background: none;
+        border: none;
+        font-size: 1.6rem;
+        color: $color-gold;
+        cursor: pointer;
+    }
+
+    /* ================= HERO ================= */
     .hero-section {
         padding: 40px 20px;
         min-height: 400px;
@@ -36,7 +85,7 @@
         }
     }
 
-    /* TITRES */
+    /* ================= TITRES ================= */
     .section-title {
         font-size: 1.4rem;
         margin: 50px 0 30px;
@@ -46,21 +95,24 @@
     .title-decor {
         max-width: 120px;
         margin-bottom: 20px;
+        display: block;       // assure que l'image est sous le titre
+        margin-left: auto;
+        margin-right: auto;   // centre l'image
     }
 
-    /* INTRO */
+    /* ================= INTRO ================= */
     .intro-section {
         padding: 50px 20px;
     }
 
-    /* QUOTE */
+    /* ================= QUOTE ================= */
     .quote-section {
         padding: 25px;
         font-size: 1.1rem;
         margin: 40px 20px;
     }
 
-    /* FEATURES / CARDS */
+    /* ================= FEATURES / CARDS ================= */
     .features-grid {
         grid-template-columns: 1fr;
         gap: 25px;
@@ -71,7 +123,7 @@
         padding: 25px;
     }
 
-    /* ADHESION */
+    /* ================= ADHESION ================= */
     .adhesion-section {
         padding: 30px 20px;
         margin: 60px 20px;
@@ -81,22 +133,36 @@
         }
     }
 
-    /* JOIN */
+    /* ================= JOIN ================= */
     .join-box {
         margin: 30px 20px;
         padding: 25px;
     }
 
-    /* BUTTON */
+    /* ================= BUTTON ================= */
     .btn-adhesion {
         padding: 12px 35px;
         font-size: 0.9rem;
     }
+
+    /* ================= FOOTER ================= */
+    .site-footer {
+        padding: 20px 15px;
+    }
+
+    .footer-content {
+        text-align: center;
+    }
+
+    .site-footer p {
+        font-size: 0.85rem;
+        line-height: 1.5;
+    }
 }
 
-
-//   ( 1024px)
-
+/* ============================
+   TABLETTE – 1024px
+============================ */
 @media (max-width: $breakpoint-tablet) {
 
     .features-grid {
@@ -106,5 +172,13 @@
 
     .hero-overlay {
         max-width: 700px;
+    }
+
+    .main-navigation {
+        padding: 15px 25px;
+    }
+
+    .nav-link {
+        font-size: 0.95rem;
     }
 }

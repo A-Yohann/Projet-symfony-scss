@@ -9,7 +9,7 @@
 
             <div class="hero-content-left">
                 <img src="{{ asset('img/horloge-header.png') }}" alt="Ornement décoratif" class="hero-img" onerror="this.style.display='none'">
-                
+
                 <div class="hero-text hero-text-overlay">
                     <h1>LE CERCLE DES COLLECTIONNEURS PASSIONNÉS</h1>
                     <h2 class="section-title">EN LIEN POUR CEUX QUI AIMENT LE TEMPS</h2>
@@ -129,12 +129,20 @@
     </section>
 
     <!-- ADHESION -->
+{% if not is_granted('ROLE_MEMBRE') %}
     <section class="adhesion-section">
         <h2>Adhésion</h2>
         <img src="{{ asset('img/adhesion.png') }}" alt="Adhésion" class="adhesion-img">
-        <p>Accédez à l'ensemble des ressources et événements.</p>
-        <a href="{{ path('app_register') }}" class="btn-adhesion">Devenir Membre</a>
+        
+        {% if app.user %}
+            <p>Accédez à l'ensemble des ressources et événements.</p>
+            <a href="{{ path('app_devenir_membre') }}" class="btn-adhesion">Devenir Membre</a>
+        {% else %}
+            <p>Connectez-vous pour devenir membre et accéder à toutes les ressources.</p>
+            <a href="{{ path('app_login') }}" class="btn-adhesion">Se connecter</a>
+        {% endif %}
     </section>
+{% endif %}
 
 </div>
 {% endblock %}

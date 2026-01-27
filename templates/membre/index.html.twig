@@ -1,0 +1,27 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello MembreController!{% endblock %}
+
+{% block body %}
+<style>
+    .example-wrapper { margin: 1em auto; max-width: 800px; width: 95%; font: 18px/1.5 sans-serif; }
+    .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }
+</style>
+
+<section class="adhesion-section">
+    <h2>Adhésion</h2>
+    <img src="{{ asset('img/adhesion.png') }}" alt="Adhésion" class="adhesion-img">
+    <p>Accédez à l'ensemble des ressources et événements réservés aux membres.</p>
+
+    {% if app.user %}
+        {% if 'ROLE_MEMBRE' not in app.user.roles %}
+            <a href="{{ path('app_devenir_membre') }}" class="btn-adhesion">Devenir Membre</a>
+        {% else %}
+            <span class="btn-adhesion disabled">Vous êtes déjà membre</span>
+        {% endif %}
+    {% else %}
+        <a href="{{ path('app_register') }}" class="btn-adhesion">Inscrivez-vous pour devenir membre</a>
+    {% endif %}
+</section>
+
+{% endblock %}

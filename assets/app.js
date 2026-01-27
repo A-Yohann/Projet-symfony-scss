@@ -8,5 +8,15 @@
 
 import './styles/app.scss';
 
+document.addEventListener("DOMContentLoaded", () => {
+    const burger = document.querySelector(".burger");
+    const nav = document.querySelector(".main-navigation");
+
+    if (burger) {
+        burger.addEventListener("click", () => {
+        nav.classList.toggle("active");
+        });
+    }
+});
 
 console.log('This log comes from assets/app.js - welcome to AssetMapper! 🎉');

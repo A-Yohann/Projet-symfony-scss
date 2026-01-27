@@ -107,6 +107,7 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     {
         $roles = $this->roles;
         $roles[] = 'ROLE_USER';
+        $roles[] = 'ROLE_MEMBRE';
 
         if ($this->statut === 'actif' && $this->cotisationAjour) {
             $roles[] = 'ROLE_MEMBRE';
