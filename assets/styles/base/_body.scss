@@ -1,4 +1,5 @@
 @use "variables" as *;
+@use '../base/typographie';
 
 body {
     margin: 0;
@@ -11,4 +12,11 @@ body {
     background-size: 2000px;
     background-position: center;
     overflow-x: hidden;
+    font-family: 'Libre_Baskerville', sans-serif;
+
+    h1, h2, h3{
+        font-family: 'Cinzel',sans-serif;
+    }
 }
+
+

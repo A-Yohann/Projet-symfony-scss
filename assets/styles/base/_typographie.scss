@@ -1,1 +1,13 @@
-// Fonts
+@font-face {
+    font-family: 'Cinzel';
+    src: url('../../../public/fonts/Cinzel/static/Cinzel-Regular.ttf') format('truetype');
+    font-weight: 400;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Libre_Baskerville';
+    src: url('../../../public/fonts/Libre_Baskerville/static/LibreBaskerville-Regular.ttf') format('truetype');
+    font-weight: 400;
+    font-style: normal;
+}
