@@ -6,7 +6,7 @@
 }
 
 .guide-icon {
-    margin-bottom: 24px;
+    margin-top: 24px;
 }
 
 .guide-card ul {
@@ -16,4 +16,10 @@
 .guide-card .btn-adhesion,
 .guide-card .locked-access {
     margin-top: auto;
+}
+
+.guide-footer{
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
 }

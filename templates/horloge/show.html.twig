@@ -43,6 +43,67 @@
                         </form>
                     </div>
                 {% endif %}
+
+                {# Section commentaires #}
+                <div class="comments-section">
+                    <h2>Commentaires ({{ horloge.comments|length }})</h2>
+                    
+                    {# Messages flash #}
+                    {% for message in app.flashes('success') %}
+                        <div class="alert alert-success">
+                            {{ message }}
+                        </div>
+                    {% endfor %}
+                    
+                    {# Afficher les commentaires existants #}
+                    {% if horloge.comments|length > 0 %}
+                        <div class="comments-list">
+                            {% for comment in horloge.comments %}
+                                <div class="comment-item">
+                                    <div class="comment-header">
+                                        <strong>{{ comment.author }}</strong>
+                                        <span class="comment-date">{{ comment.creatAt|date('d/m/Y à H:i') }}</span>
+                                    </div>
+                                    <div class="comment-content">
+                                        {{ comment.content }}
+                                    </div>
+                                </div>
+                            {% endfor %}
+                        </div>
+                    {% else %}
+                        <p>Aucun commentaire pour le moment. Soyez le premier à commenter !</p>
+                    {% endif %}
+                    
+                    {# Formulaire d'ajout de commentaire #}
+                    <div class="comment-form-wrapper">
+                        <h3>Ajouter un commentaire</h3>
+                        <form method="post" class="comment-form">
+                            <div class="form-group">
+                                <label for="author">Votre nom</label>
+                                <input 
+                                    type="text" 
+                                    id="author" 
+                                    name="author" 
+                                    required 
+                                    placeholder="Entrez votre nom"
+                                >
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="content">Commentaire</label>
+                                <textarea 
+                                    id="content" 
+                                    name="content" 
+                                    rows="4" 
+                                    required 
+                                    placeholder="Écrivez votre commentaire..."
+                                ></textarea>
+                            </div>
+                            
+                            <button type="submit" class="btn btn-adhesion">Publier le commentaire</button>
+                        </form>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
