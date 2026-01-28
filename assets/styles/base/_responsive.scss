@@ -1,15 +1,5 @@
 @use "../base/variables" as *;
 
-/* ============================
-   FOND GLOBAL – TOUS SUPPORTS
-============================ */
-// body, .page-wrapper, .site-footer{
-//     background-image: url('../../img/fond1.png');
-//     background-size: cover;        // couvre tout l'écran
-//     background-position: center;   // centre l'image
-//     background-repeat: no-repeat;  // pas de répétition
-//     background-attachment: scroll; // fixe ou scroll selon mobile
-// }
 
 /* ============================
    MOBILE – 768px
@@ -18,15 +8,16 @@
 
     /* BODY */
     body {
-        background-attachment: scroll; // compatible mobile
+        background-attachment: scroll;
     }
 
-    /* ================= NAVIGATION ================= */
+    /*  NAVIGATION */
     .main-navigation {
         flex-wrap: wrap;
         gap: 15px;
         padding: 12px 20px;
         position: relative;
+        min-height: 50px; 
     }
 
     .nav-left,
@@ -62,68 +53,124 @@
     .burger {
         display: block;
         position: absolute;
-        right: 20px;
-        top: 14px;
+        right: 25px;
+        top: 12px; 
         background: none;
         border: none;
         font-size: 1.6rem;
         color: $color-gold;
         cursor: pointer;
+        padding: 5px;
+        z-index: 1000; 
     }
 
-    /* ================= HERO ================= */
+    /* HERO  */
     .hero-section {
         padding: 40px 20px;
         min-height: 400px;
+        background-size: auto 100% !important; 
+        background-position: center center !important;
+        
+        h1 {
+            font-size: 1.6rem;
+        }
+        
+        h2 {
+            font-size: 1.2rem;
+            letter-spacing: 1.5px;
+        }
+        
+        p {
+            font-size: 0.9rem;
+            line-height: 1.5;
+        }
     }
 
     .hero-overlay {
         padding: 25px;
 
         h1 {
-            font-size: 1.8rem;
+            font-size: 1.6rem;
+        }
+        
+        h2 {
+            font-size: 1.2rem;
+            letter-spacing: 1.5px;
+        }
+        
+        p {
+            font-size: 0.9rem;
+            line-height: 1.5;
         }
     }
 
-    /* ================= TITRES ================= */
+    /*  TITRES */
     .section-title {
         font-size: 1.4rem;
-        margin: 50px 0 30px;
+        margin: 50px 0 10px; 
         letter-spacing: 2px;
     }
 
+    /* IMAGE DÉCORATIVE SOUS LE TITRE */
     .title-decor {
-        max-width: 120px;
-        margin-bottom: 20px;
-        display: block;       // assure que l'image est sous le titre
-        margin-left: auto;
-        margin-right: auto;   // centre l'image
+        max-width: 250px !important; 
+        margin: 15px auto 35px !important; 
+        display: block !important; 
+        height: auto !important;
     }
 
-    /* ================= INTRO ================= */
+
+    .section-title + .title-decor {
+        display: block !important;
+        margin: 15px auto 35px !important;
+        max-width: 250px !important;
+        width: 80% !important;
+    }
+
+    /* INTRO  */
     .intro-section {
         padding: 50px 20px;
+        
+        h1 {
+            font-size: 1.6rem;
+        }
+        
+        h2 {
+            font-size: 1.2rem;
+            letter-spacing: 1.5px;
+        }
+        
+        p {
+            font-size: 0.9rem;
+            line-height: 1.5;
+        }
     }
 
-    /* ================= QUOTE ================= */
+    /*  QUOTE  */
     .quote-section {
         padding: 25px;
         font-size: 1.1rem;
         margin: 40px 20px;
     }
 
-    /* ================= FEATURES / CARDS ================= */
+    /*  FEATURES / CARDS PILLIERS  */
     .features-grid {
         grid-template-columns: 1fr;
         gap: 25px;
         padding: 20px;
+        justify-items: center; 
+        margin: 0 auto; 
+        max-width: 100%;
     }
 
     .feature-card {
         padding: 25px;
+        width: 100%;
+        max-width: 350px; 
+        margin: 0 auto; 
     }
 
-    /* ================= ADHESION ================= */
+    /*  ADHESION */
     .adhesion-section {
         padding: 30px 20px;
         margin: 60px 20px;
@@ -133,19 +180,19 @@
         }
     }
 
-    /* ================= JOIN ================= */
+    /*  JOIN  */
     .join-box {
         margin: 30px 20px;
         padding: 25px;
     }
 
-    /* ================= BUTTON ================= */
+    /*  BUTTON  */
     .btn-adhesion {
         padding: 12px 35px;
         font-size: 0.9rem;
     }
 
-    /* ================= FOOTER ================= */
+    /*  FOOTER */
     .site-footer {
         padding: 20px 15px;
     }
@@ -160,14 +207,39 @@
     }
 }
 
-/* ============================
-   TABLETTE – 1024px
-============================ */
+/* TABLETTE – 1024px*/
 @media (max-width: $breakpoint-tablet) {
 
+    /* TITRES ET DÉCO TABLETTE */
+    .section-title {
+        margin-bottom: 10px; 
+    }
+
+    .title-decor {
+        display: block !important;
+        margin: 15px auto 35px !important;
+        max-width: 300px !important; 
+        width: 70% !important;
+    }
+
+    .section-title + .title-decor {
+        display: block !important;
+        margin: 15px auto 35px !important;
+        max-width: 300px !important;
+        width: 70% !important;
+    }
+
+    /* FEATURES / CARDS PILLIERS */
     .features-grid {
         grid-template-columns: repeat(2, 1fr);
-        gap: 30px;
+        gap: 45px;
+        justify-items: center;
+        padding: 20px;
+    }
+
+    .feature-card {
+        width: 100%;
+        max-width: 400px; 
     }
 
     .hero-overlay {
@@ -180,5 +252,136 @@
 
     .nav-link {
         font-size: 0.95rem;
+    }
+
+
+    .hero-section {
+        background-size: auto 100% !important;
+        background-position: center center !important;
+    }
+}
+
+/* RESPONSIVE - GALLERY*/
+
+/* === TABLETTE === */
+@media (max-width: 768px) {
+    .cards-wrapper {
+        flex-direction: column;
+        align-items: center;
+        gap: 45px;
+    }
+
+    .card-horloge {
+        width: 280px;
+        height: 420px;
+    }
+
+    .card-image-container {
+        height: 180px;
+    }
+}
+
+/*  MOBILE */
+@media (max-width: 480px) {
+    
+
+    .hero-section {
+        background-size: auto 100% !important; 
+        background-position: center center !important;
+        min-height: 350px;
+        
+        h1 {
+            font-size: 1.4rem;
+            line-height: 1.3;
+        }
+        
+        h2 {
+            font-size: 1.1rem;
+            letter-spacing: 1px;
+        }
+        
+        p {
+            font-size: 0.85rem;
+            line-height: 1.5;
+        }
+    }
+
+    .hero-overlay {
+        h1 {
+            font-size: 1.4rem;
+            line-height: 1.3;
+        }
+        
+        h2 {
+            font-size: 1.1rem;
+            letter-spacing: 1px;
+        }
+        
+        p {
+            font-size: 0.85rem;
+            line-height: 1.5;
+        }
+    }
+
+    .intro-section {
+        h1 {
+            font-size: 1.4rem;
+            line-height: 1.3;
+        }
+        
+        h2 {
+            font-size: 1.1rem;
+            letter-spacing: 1px;
+        }
+        
+        p {
+            font-size: 0.85rem;
+            line-height: 1.5;
+        }
+    }
+    
+
+    .section-title {
+        font-size: 1.5rem;
+        margin-bottom: 10px;
+    }
+
+    .title-decor {
+        max-width: 220px !important; 
+        width: 75% !important;
+        margin: 15px auto 30px !important;
+    }
+
+    .gallery-container {
+        padding: 15px;
+    }
+
+    .card-horloge {
+        width: 280px;
+        height: 420px;
+    }
+
+    .card-image-container {
+        height: 180px;
+    }
+
+    .feature-card {
+        max-width: 320px; 
+    }
+}
+
+@media (max-width: 360px) {
+    .hero-section {
+        background-size: auto 100% !important; 
+        min-height: 320px;
+    }
+
+    .feature-card {
+        max-width: 280px; 
+    }
+
+    .title-decor {
+        max-width: 180px !important; 
+        width: 70% !important;
     }
 }
