@@ -1,0 +1,7 @@
+@use "../base/variables" as *;
+
+.comments-section{
+    h2,h3,p,label{
+        color: $color-dark;
+    }
+}
