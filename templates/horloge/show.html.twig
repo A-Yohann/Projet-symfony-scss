@@ -28,6 +28,15 @@
                     </div>
                 {% endif %}
                 
+                {# Section Mécanisme #}
+                {% if horloge.mecanisme %}
+                    <div class="mecanisme-section">
+                        <h2>Mécanisme</h2>
+                        <p><strong>Type :</strong> {{ horloge.mecanisme.nom }}</p>
+                        <p><strong>Complexité :</strong> {{ horloge.mecanisme.complexite }}</p>
+                    </div>
+                {% endif %}
+                
                 {% if horloge.user %}
                     <div class="owner-info">
                         <p><strong>Ajouté par :</strong> {{ horloge.user.email }}</p>

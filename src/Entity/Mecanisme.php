@@ -21,15 +21,24 @@ class Mecanisme
     #[ORM\Column(length: 255)]
     private ?string $complexite = null;
 
+
+
     /**
      * @var Collection<int, PieceHorlogere>
      */
     #[ORM\ManyToMany(targetEntity: PieceHorlogere::class, mappedBy: 'mecanismes')]
     private Collection $pieceHorlogeres;
 
+    /**
+     * @var Collection<int, CategorieHorloge>
+     */
+    #[ORM\OneToMany(targetEntity: CategorieHorloge::class, mappedBy: 'mecanisme')]
+    private Collection $categorieHorloges;
+
     public function __construct()
     {
         $this->pieceHorlogeres = new ArrayCollection();
+        $this->categorieHorloges = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -45,7 +54,6 @@ class Mecanisme
     public function setNom(string $nom): static
     {
         $this->nom = $nom;
-
         return $this;
     }
 
@@ -57,9 +65,10 @@ class Mecanisme
     public function setComplexite(string $complexite): static
     {
         $this->complexite = $complexite;
-
         return $this;
     }
+
+
 
     /**
      * @return Collection<int, PieceHorlogere>
@@ -75,7 +84,6 @@ class Mecanisme
             $this->pieceHorlogeres->add($pieceHorlogere);
             $pieceHorlogere->addMecanisme($this);
         }
-
         return $this;
     }
 
@@ -83,6 +91,35 @@ class Mecanisme
     {
         if ($this->pieceHorlogeres->removeElement($pieceHorlogere)) {
             $pieceHorlogere->removeMecanisme($this);
+        }
+        return $this;
+    }
+
+    /**
+     * @return Collection<int, CategorieHorloge>
+     */
+    public function getCategorieHorloges(): Collection
+    {
+        return $this->categorieHorloges;
+    }
+
+    public function addCategorieHorloge(CategorieHorloge $categorieHorloge): static
+    {
+        if (!$this->categorieHorloges->contains($categorieHorloge)) {
+            $this->categorieHorloges->add($categorieHorloge);
+            $categorieHorloge->setMecanisme($this);
+        }
+
+        return $this;
+    }
+
+    public function removeCategorieHorloge(CategorieHorloge $categorieHorloge): static
+    {
+        if ($this->categorieHorloges->removeElement($categorieHorloge)) {
+            // set the owning side to null (unless already changed)
+            if ($categorieHorloge->getMecanisme() === $this) {
+                $categorieHorloge->setMecanisme(null);
+            }
         }
 
         return $this;

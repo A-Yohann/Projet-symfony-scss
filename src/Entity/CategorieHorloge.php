@@ -48,11 +48,21 @@ class CategorieHorloge
     #[ORM\OneToMany(targetEntity: Comment::class, mappedBy: 'categorieHorloge')]
     private Collection $comments;
 
+    /**
+     * @var Collection<int, Mecanisme>
+     */
+    #[ORM\OneToMany(targetEntity: Mecanisme::class, mappedBy: 'categorieHorloge')]
+    private Collection $mecanismes;
+
+    #[ORM\ManyToOne(inversedBy: 'categorieHorloges')]
+    private ?Mecanisme $mecanisme = null;
+
     public function __construct()
     {
         $this->pieceHorlogeres = new ArrayCollection();
         $this->conseilConservations = new ArrayCollection();
         $this->comments = new ArrayCollection();
+        $this->mecanismes = new ArrayCollection();
     }
 
     // --------------------
@@ -179,6 +189,9 @@ class CategorieHorloge
         return $this;
     }
 
+    // --------------------
+    // Comment
+    // --------------------
     /**
      * @return Collection<int, Comment>
      */
@@ -200,7 +213,6 @@ class CategorieHorloge
     public function removeComment(Comment $comment): static
     {
         if ($this->comments->removeElement($comment)) {
-            // set the owning side to null (unless already changed)
             if ($comment->getCategorieHorloge() === $this) {
                 $comment->setCategorieHorloge(null);
             }
@@ -208,4 +220,29 @@ class CategorieHorloge
 
         return $this;
     }
+
+    // --------------------
+    // Mecanisme
+    // --------------------
+    /**
+     * @return Collection<int, Mecanisme>
+     */
+    public function getMecanismes(): Collection
+    {
+        return $this->mecanismes;
+    }
+
+    public function getMecanisme(): ?Mecanisme
+    {
+        return $this->mecanisme;
+    }
+
+    public function setMecanisme(?Mecanisme $mecanisme): static
+    {
+        $this->mecanisme = $mecanisme;
+
+        return $this;
+    }
+
+   
 }

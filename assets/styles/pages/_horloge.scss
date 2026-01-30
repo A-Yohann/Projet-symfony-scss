@@ -115,6 +115,9 @@
 }
 
 .btn {
+    all: unset;
+    background-color: $color-gold;
+    color: $color-dark;
     padding: 12px 30px;
     border: none;
     border-radius: 5px;
@@ -141,6 +144,19 @@
 
 .btn-danger:hover {
     background-color: darken($color-dark, 10%);
+}
+
+.mecanisme-section{
+    h2,p{
+            color: $color-dark;
+
+    }
+}
+
+.filter-section{
+    border: 1px solid $color-gold;
+    margin-top: 10px;
+    padding: 20px;
 }
 
 /* Responsive */

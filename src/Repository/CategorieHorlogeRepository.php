@@ -6,9 +6,6 @@ use App\Entity\CategorieHorloge;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Doctrine\Persistence\ManagerRegistry;
 
-/**
- * @extends ServiceEntityRepository<CategorieHorloge>
- */
 class CategorieHorlogeRepository extends ServiceEntityRepository
 {
     public function __construct(ManagerRegistry $registry)
@@ -16,6 +13,16 @@ class CategorieHorlogeRepository extends ServiceEntityRepository
         parent::__construct($registry, CategorieHorloge::class);
     }
 
+    public function findByMecanismes(array $mecanismes): array
+    {
+        // Si une horloge a UN seul mécanisme (relation ManyToOne)
+        return $this->createQueryBuilder('h')
+            ->where('h.mecanisme IN (:mecanismes)')
+            ->setParameter('mecanismes', $mecanismes)
+            ->getQuery()
+            ->getResult();
+    }
+}
     //    /**
     //     * @return CategorieHorloge[] Returns an array of CategorieHorloge objects
     //     */
@@ -40,4 +47,4 @@ class CategorieHorlogeRepository extends ServiceEntityRepository
     //            ->getOneOrNullResult()
     //        ;
     //    }
-}
+
