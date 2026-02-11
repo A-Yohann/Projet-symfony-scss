@@ -29,7 +29,7 @@ class PieceHorlogere
     private ?string $imageUrl = null;
 
     #[ORM\Column]
-    private ?\DateTime $createAt = null;
+    private ?\DateTimeInterface $createdAt = null;
 
     #[ORM\ManyToOne(inversedBy: 'pieceHorlogeres')]
     private ?User $membre = null;
@@ -101,14 +101,14 @@ class PieceHorlogere
         return $this;
     }
 
-    public function getCreateAt(): ?\DateTime
+    public function getCreatedAt(): ?\DateTimeInterface
     {
-        return $this->createAt;
+        return $this->createdAt;
     }
 
-    public function setCreateAt(\DateTime $createAt): static
+    public function setCreatedAt(\DateTimeInterface $createdAt): static
     {
-        $this->createAt = $createAt;
+        $this->createdAt = $createdAt;
 
         return $this;
     }

@@ -34,10 +34,10 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     private ?string $password = null;
 
     #[ORM\Column(nullable: true)]
-    private ?\DateTime $dateInscription = null;
+    private ?\DateTimeInterface $dateInscription = null;
 
     #[ORM\Column(nullable: true)]
-    private ?\DateTime $lastLogin = null;
+    private ?\DateTimeInterface $lastLogin = null;
 
     #[ORM\Column(nullable: true)]
     private ?bool $estCandidat = null;
@@ -138,23 +138,23 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
         // Effacer les données sensibles temporaires
     }
 
-    public function getDateInscription(): ?\DateTime
+    public function getDateInscription(): ?\DateTimeInterface
     {
         return $this->dateInscription;
     }
 
-    public function setDateInscription(?\DateTime $dateInscription): static
+    public function setDateInscription(?\DateTimeInterface $dateInscription): static
     {
         $this->dateInscription = $dateInscription;
         return $this;
     }
 
-    public function getLastLogin(): ?\DateTime
+    public function getLastLogin(): ?\DateTimeInterface
     {
         return $this->lastLogin;
     }
 
-    public function setLastLogin(?\DateTime $lastLogin): static
+    public function setLastLogin(?\DateTimeInterface $lastLogin): static
     {
         $this->lastLogin = $lastLogin;
         return $this;

@@ -21,7 +21,7 @@ class Comment
     private ?string $author = null;
 
     #[ORM\Column]
-    private ?\DateTimeImmutable $creatAt = null;
+    private ?\DateTimeImmutable $createdAt = null;
 
     #[ORM\ManyToOne(inversedBy: 'comments')]
     #[ORM\JoinColumn(nullable: false)]
@@ -30,7 +30,7 @@ class Comment
     // Ajoutez ce constructeur
     public function __construct()
     {
-        $this->creatAt = new \DateTimeImmutable();
+        $this->createdAt = new \DateTimeImmutable();
     }
 
     public function getId(): ?int
@@ -62,14 +62,14 @@ class Comment
         return $this;
     }
 
-    public function getCreatAt(): ?\DateTimeImmutable
+    public function getCreatedAt(): ?\DateTimeImmutable
     {
-        return $this->creatAt;
+        return $this->createdAt;
     }
 
-    public function setCreatAt(\DateTimeImmutable $creatAt): static
+    public function setCreatedAt(\DateTimeImmutable $createdAt): static
     {
-        $this->creatAt = $creatAt;
+        $this->createdAt = $createdAt;
 
         return $this;
     }

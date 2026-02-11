@@ -24,7 +24,7 @@ class Cotisation
     private ?bool $payee = null;
 
     #[ORM\Column(nullable: true)]
-    private ?\DateTime $datePaiement = null;
+    private ?\DateTimeInterface $datePaiement = null;
 
     #[ORM\ManyToOne(inversedBy: 'cotisations')]
     private ?User $user = null;
@@ -70,12 +70,12 @@ class Cotisation
         return $this;
     }
 
-    public function getDatePaiement(): ?\DateTime
+    public function getDatePaiement(): ?\DateTimeInterface
     {
         return $this->datePaiement;
     }
 
-    public function setDatePaiement(?\DateTime $datePaiement): static
+    public function setDatePaiement(?\DateTimeInterface $datePaiement): static
     {
         $this->datePaiement = $datePaiement;
 
