@@ -23,7 +23,7 @@ class ContactController extends AbstractController
 
             $email = (new Email())
                 ->from('contact@yohanndufresne.fr') // adresse liée au domaine
-                ->to('destinataire@live.fr')
+                ->to('contact@yohanndufresne.fr') // adresse de destination
                 ->subject('Nouveau message de contact')
                 ->text(
                     "Nom: {$data['name']}\n".
