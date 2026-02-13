@@ -22,7 +22,7 @@ class ContactController extends AbstractController
             $data = $form->getData();
 
             $email = (new Email())
-                ->from('expediteur@gmail.com')
+                ->from('contact@yohanndufresne.fr') // adresse liée au domaine
                 ->to('destinataire@live.fr')
                 ->subject('Nouveau message de contact')
                 ->text(
